@@ -26,3 +26,4 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+[ ![Codeship Status for luvcjssy/fake-2](https://codeship.io/projects/b4fbfc00-046c-0132-a5d1-2ae99488e26b/status)](https://codeship.io/projects/30649)
