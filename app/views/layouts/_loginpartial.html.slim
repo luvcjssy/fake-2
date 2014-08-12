@@ -1,0 +1,8 @@
+- if session[:signin] == true
+	text
+		span style="color:white" Xin chao, 
+		a.gn-link.secondary title="Manage" href="#" #{session[:name]}
+		a style="color:#FF0084" href="/sign_out" Dang xuat
+- else
+	a data-track="Account-sign_in" href="/sign_in" class="gn-link secondary" data-rapid_p="15"
+		span Dang nhap

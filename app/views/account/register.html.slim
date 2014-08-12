@@ -1,0 +1,13 @@
+.container
+	header
+		h1 
+			strong Registration Form
+	 	h2 Create a new account
+	section.main
+		= form_for :account, url: '/sign_up', html: {class: "form-5 clearfix"} do |f|
+			p
+				= f.text_field :username, placeholder: "Username", html: {id: "login", name: "login"}, autofocus: true
+				= f.password_field :password, placeholder: "Password", html: {id: "password", name: "password"}
+			= f.button html: {name: "submit"}
+				i.icon-arrow-right &rarr;
+				span Register

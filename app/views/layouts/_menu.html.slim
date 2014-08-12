@@ -1,0 +1,40 @@
+#global-nav.gn-signed-out
+			#gn-wrap.gn-wrap
+				.logo style="width:70px;"
+					a href="/index" data-track="Logo-main" title="Logo Flickr. Neu ban nhap vao day, ban se vao trang chinh" data-rapid_p="1"
+						div style="padding-top:15px"
+							img src="/assets/logo-1.png" width="70px" height="19px"
+				.nav.small-logo
+					ul.top-nav 
+						- if !session[:signin] == true
+							li.top-link style="cursor:pointer; height:49px; display:block; float:left;"
+								a.gn-link.gn-signup.sign-up-pixel-trigger data-track="Signup-main" href="/register" data-rapid_p="2" style="color:#FF0084; text-decoration:none;"
+									span Đăng ký
+						- else
+							li.toplink#menuuser
+								a.gn-link.gn-signup.sign-up-pixel-trigger data-track="Signup-main" href="/home/imageuser" data-rapid_p="2"
+									span Anh cua ban
+								.panel#you-panel
+									.arrow
+									.bd
+										ul
+											li.gn-subnav-item
+												a data-track="You-photostream" href="/home/imageuser" data_rapid_p="3" Kho anh
+											li.gn-subnav-item
+												a data-track="Manage-photostream" href="/home/trinhdiemanh" data-rapid_p="3" Trinh dien anh
+											li.gn-subnav-item
+												a data-track="Slideshow-photostream" href="/home/quanlyanh" data-rapid_p="3" Sua
+
+						li.gn-menu-parent.toplink data-context="explore"
+							a.gn-link.explore href="/index" data-track="Explore-main" data-rapid_p="3"
+								span Trang chu
+						li.toplink.gn-upload
+							a.gn-link data-track="Upload-main" href="/home/uploadimage" data-rapid_p="12"
+								span Tai len
+						li.toplink.gn-upload 
+							a.gn-link data-track="Upload-main" href="/home/flickr" data-rapid_p="12"
+								span Anh moi tu flickr
+				.tools
+					ul.top-nav
+						li.toplink.gn-signin
+							= render 'layouts/loginpartial'
