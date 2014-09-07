@@ -21,5 +21,11 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+ adapter: postgresql
+ encoding: unicode
+ pool: 5
+ database: <%= ENV['TODO_APP_DEV_DATABASE'] %>
+ username: <%= ENV['TODO_APP_DEV_USER'] %>
+ password: <%= ENV['TODO_APP_DEV_PASSWORD'] %>
+ host: <%= ENV['TODO_APP_DEV_HOST'] %>
+ port: <%= ENV['TODO_APP_DEV_PORT'] %> 
