@@ -1,0 +1,23 @@
+.container
+	header
+		h1 
+			strong Manage Account
+	 	h2 Change password
+	 	font color="red" size="3px"
+	 		b
+	 			- if @flag1
+	 				div Current Password is invalid
+	 			- elsif @flag2
+	 				div Password confirmation does not match new password
+	 			- elsif @flag3
+	 				div Can not change password
+		 	
+	section.main
+		= form_for :account, url: edit_account_path, html: {class: "form-5 clearfix"} do |f|	
+			p
+				= f.password_field :current_password, placeholder: "Current Password",  autofocus: true
+				= f.password_field :password, placeholder: "New Password"
+			 	= f.password_field :password_confirmation, placeholder: "Password Confirmation"
+			= f.button html: {name: "submit"}
+				i.icon-arrow-right &rarr;
+				span Submit

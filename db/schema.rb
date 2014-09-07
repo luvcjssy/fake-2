@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811163654) do
+ActiveRecord::Schema.define(version: 20140831091123) do
 
   create_table "accounts", force: true do |t|
-    t.string   "username"
+    t.string   "email"
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "salt"
   end
 
   create_table "images", force: true do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140811163654) do
     t.integer  "like"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
 end

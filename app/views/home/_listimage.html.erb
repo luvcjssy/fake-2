@@ -1,44 +1,46 @@
-<% i = 0 %>
-<% j = 0 %>
-<% @images.each do |image| %>
-	<% if (i % 2 == 0) %>
-		<div class="row" style="width: 1331px">
-	<% end %>
+<% unless @images.nil? %>
+	<% i = 0 %>
+	<% j = 0 %>
+	<% @images.each do |image| %>
+		<% if (i % 2 == 0) %>
+			<div class="row" style="width: 1331px">
+		<% end %>
 
-			<div class="photo-display-item" id="<%= image.id %>" style="z-index: inherit;">
-		        <div class="hover-target">
-		        	<div class="thumb">
-		        		<span class="photo_container pc_ju">
-		        			<a data-track="photo-click" href="uploads/<%= image.url %>" class="rapidnofollow photo-click" >
-		        				<img id="<%= image.id %>" src="uploads/<%= image.url %>"  height="297px" alt="<%= image.title %>" class="pc_img" border="0">
-		        				<div class="play"></div>
-		        			</a>
-        				</span>
-	        			<div class="meta">
-	        				<div class="title" style="display: none;">
-	        					<a data-track="photo-click" href="\" title="<%= image.title %>" class="title" >
-	        						<%= image.title %>
-	        					</a>
-	        				</div>
-	        				<div class="attribution-block">
-	        					<span class="attribution">
-	        						<span>bởi </span>
-	        						<a data-track="owner" href="\" title="User" class="owner">USER</a>
-	        				</div>
-	        				<span class="inline-icons" style="display: none">
-	        					<a data-track="favorite" href="#" class="rapidnofollow fave-star-inline canfave" title="Thêm ảnh này vào ảnh yêu thích của bạn?">
-	        						<img width="12" height="12" alt="[★]" src="http://l.yimg.com/g/images/spaceball.gif" class="img">
-	        						<span class="fave-count count"><%= image.like %></span>
-	        					</a>
+				<div class="photo-display-item" id="<%= image.id %>" style="z-index: inherit;">
+			        <div class="hover-target">
+			        	<div class="thumb">
+			        		<span class="photo_container pc_ju">
+			        			<a data-track="photo-click" href= <%= detail_home_path(image) %> class="rapidnofollow photo-click" >
+			        				<img id="<%= image.id %>" src="/uploads/<%= image.url %>"  height="297px" alt="<%= image.title %>" class="pc_img" border="0">
+			        				<div class="play"></div>
+			        			</a>
 	        				</span>
-	        			</div>
-	        		</div>
-	        	</div>
+		        			<div class="meta">
+		        				<div class="title" style="display: none;">
+		        					<a data-track="photo-click" href="\" title="<%= image.title %>" class="title" >
+		        						<%= image.title %>
+		        					</a>
+		        				</div>
+		        				<div class="attribution-block">
+		        					<span class="attribution">
+		        						<span>bởi </span>
+		        						<a data-track="owner" href="\" title="User" class="owner"><%= image.account.email %></a>
+		        				</div>
+		        				<span class="inline-icons" style="display: none">
+		        					<a data-track="favorite" href="#" class="rapidnofollow fave-star-inline canfave" title="Thêm ảnh này vào ảnh yêu thích của bạn?">
+		        						<img width="12" height="12" alt="[★]" src="http://l.yimg.com/g/images/spaceball.gif" class="img">
+		        						<span class="fave-count count"><%= image.like %></span>
+		        					</a>
+		        				</span>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </div>
+
+		<% if ((j = i + 1) % 2 == 0) %>
 	        </div>
+	    <% end %>
 
-	<% if ((j = i + 1) % 2 == 0) %>
-        </div>
-    <% end %>
-
-    <% i = i + 1 %>
+	    <% i = i + 1 %>
+	<% end %>
 <% end %>

@@ -20,4 +20,13 @@ module FakeSharingImage
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
   end
+  # class Base
+  #   include Helpers, ::ERB::Util, Context
+
+  #   #Style CSS for error
+  ActionView::Base.field_error_proc = Proc.new do |html_tag, instance_tag|
+    "#{html_tag}".html_safe
+  end
+
+  #Rails.application.config.assets.precompile += %w( style.css )
 end

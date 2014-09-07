@@ -1,0 +1,37 @@
+<% unless @images.nil? %>
+	<% @images.each do |image| %>
+		<div class="photoStream-photo">
+			<div class="photoStream-container">
+				&nbsp;
+				<div class="photoStream-thumb">
+					<span>
+						<a href="detail<%= image.id %>">
+							<img src="/uploads/<%= image.url %>" width="240px">
+						</a>
+					</span>
+				</div>
+				<div class="photoStream-title">
+					<div class="StreamView">
+						<h4 id="titleAnh<%=image.id%>"><%=image.title%></h4>
+						<input type="text" id="txtTitle<%=image.id%>" style="display:none; width:240px; background-color: lightgoldenrodyellow;">
+						
+						<div class="buttons" id="idButt<%=image.id%>" style="display:none">
+							<button class="Butt" id="idLuu" onclick="luu(<%=image.id%>)">SAVE</button>
+							<button class="CancelButt" id="idHuy" onclick="huy(<%=image.id%>)">CANCEL</button>
+						</div>
+					</div>
+					<div class="photoStream-meta">
+						<div class="StreamView">
+							<div class="Desc">
+								Click to edit or delete image.
+								<div>
+									(<b id="" onclick="sua(<%=image.id%>)">Edit</b> | <b id="xoaanh" onclick="xoa(<%=image.id%>)">Delete</b>)
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% end %>

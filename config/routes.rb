@@ -1,16 +1,39 @@
 Rails.application.routes.draw do
-  
-  get '/index', to: 'home#index' 
-  get '/sign_in', to: 'account#sign_in'
-  get '/register', to: 'account#register'
-  get '/sign_out', to: 'account#sign_out'
-  post '/sign_up', to: 'account#sign_up'
-
+  root 'home#index'
+  resources :account do
+    collection do
+      get 'sign_in'
+      post 'log_in'
+      get 'sign_out'
+      get 'register'
+      post 'sign_up'
+    end
+    member do
+      get 'manage'
+      post 'edit'
+    end
+  end
+  resources :home do
+    collection do
+      get 'index'
+      get 'upload'
+      post 'upload_image'
+      get 'flickr_photo'
+      get 'image'
+      get 'edit'
+      post 'update'
+      post 'delete_image'
+    end
+    member do
+      get 'detail'
+    end
+  end
+  #match '/sign_in' => 'account#sign_in', via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -19,7 +42,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  #   resources :account
 
   # Example resource route with options:
   #   resources :products do

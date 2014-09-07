@@ -1,0 +1,37 @@
+<% unless @list.nil? %>
+	<% i = 0 %>
+	<% j = 0 %>
+	<% @list.each do |img| %>
+		<% @info = flickr.photos.getInfo(:photo_id => img.id) %>
+		<% if i % 2 == 0 %>		
+			<div class="row" style="width:1331px">	
+		<% end %>		
+				<div class="photo-display-item" id="<%= img.id %>" style="z-index:inherit;">
+					<div class="hover-target">
+						<div class="thumb">
+							<span class="photo_container pc_ju">
+								<a data-track="photo-click" data-lightbox="<%= img.id %>" href="<%= FlickRaw.url(@info) %>" class="rapidnofollow photo-click" alt="<%= @info.title %>">
+									<img id="<%= img.id %>" src="<%= FlickRaw.url(@info) %>" old-width="530" height="298" alt="<%= @info.title %>" class="pc_img_defer" border="0">
+									<div class="play"></div>
+								</a>
+							</span>
+							<div class="meta" style="background:none;">
+								<div class="title" style="display:none">
+									<a data-track="photo-click" href title="<%= @info.title %>" class="title" style="display:none"><%= @info.title %></a>
+								</div>
+								<div class="attribution-block">
+									<span class="attribution">
+										<span>from</span>
+										<a data-track="owner" href="http://flickr.com/explore" title="Flickr" class="owner">flickr</a>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		<% if ((j = i + 1) % 2 == 0) %>
+			</div>
+		<% end %>	  
+		<% i = i + 1 %>  
+	<% end %>
+<% end %>

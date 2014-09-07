@@ -1,0 +1,26 @@
+#main.clearfix style="z-index: 1; margin-top: 0px"
+    .subnav-refresh.subnav-view.subnav-state-ready#subnav-refresh style="left: -188px; width: 1351px;"
+        .cover-photo-holder
+            #cover-photo.cover-photo.wviewvert style="background-image: url(http://l.yimg.com/g/images/coverphoto12_h.jpg.v2); top: -35px;"
+        .subnav-middle
+            .sn-avatar.sn-avatar-size-300
+                img.sn-avatar-mask height="110" width="110" src="/assets/fake.jpg">
+            .person
+                h1
+                    span.character-name-holder
+                        = session[:name]
+            .subnav-holder
+                ul.nav-links.clearfix
+                    li.sn-navitem.sn-photostream.sn-active
+                        a data-track="YouSubnav-photostream" href=image_home_index_path data-rapid_p="3" Kho ảnh
+                    li.sn-navitem.sn-navitem-sets
+                        a data-track="YouSubnav-sets" href="/home/trinhdienanh" data-rapid_p="4" Trình diễn ảnh
+                    li.sn-navitem.sn-navitem-faves
+                        a data-track="YouSubnav-favorites" href=edit_home_index_path data-rapid_p="5" Sửa
+    #view-holder
+        #photo-list-holder.pre-loaded.loaded style="opacity: 1;"
+            div
+                #thumb-wrapper
+                    #thumbnails.ju.photo-display-container.clearfix style="width: 1341px; margin-left: 10px;"
+                        #photo-display-container style="z-index: 2;"
+                        	= render 'home/listimageuser'

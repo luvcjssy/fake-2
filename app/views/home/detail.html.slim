@@ -1,0 +1,52 @@
+#main.clearfix style="margin-top: 0px"
+    #photo style="height: 537px;"
+        #photo-container
+        	.photo-div#main-photo-container style="height: 496px; margin-top: 0px; margin-bottom: 0px;"
+        		img#liquid-photo alt="photo" aria-describedby="title_div" src="/uploads/#{@image.url}" style="height: 496px; opacity: 1; visibility: visible;"
+        	#photo-actions
+        		h1#title_div.photo-title property="dc:title" =@image.title
+        		#action-buttons-right
+        			ul#stats_ul
+        				li#fave-count.stat-item
+        					a href="" onlick="likeimg(63)" class="ywa-track fave-button visible-if-can-fave" id="button-bar-fave" tabindex="4"
+        						span.ie-hack &nbsp;
+        						span.stat-icon.star &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        						= @image.like
+        				li.divider
+        					span
+        						span &nbsp;
+        				li.share-this-v3.share-this-more.last
+        					input type="submit" class="imgSub" title="Post hình ảnh này lên Facebook của bạn."
+    #photo-details.clearfix
+        #primary-column-wrapper
+            #primary-column.wide-photo-details
+                #meta
+                    #description_div.photo-desc
+                        p style="font-weight: bold" Hãy để lại bình luận của bạn
+                #invites-and-comments
+                    #comments
+                        iframe src="//www.facebook.com/plugins/comments.php?href=localhost:3000/home/#{@image.id}/detail&amp;action=comment&amp;appId=628030583900514" scrolling="yes" frameborder="0" style="border: none; width: 100%; overflow: hidden; height: 400px;" allowtransparency="true"
+        #sidebar.wide-sidebar
+            #photo-story
+                #photo-story-attribution.clearfix
+                    p.flickr-user
+                        span.name
+                            a href="#" data-track="photoAttributionBuddyIconClick" data-rapid_p="1"
+                                img src="/assets/fake.jpg" alt="" width="48" height="48" align="absmiddle" data-menu-id="photo-owner-icon" class="buddyicon defer personmenu-trigger" id="yui_3_11_0_3_1392805346508_102" style="opacity: 1; transition: opacity 0.25s ease-in-out; -webkit-transition: opacity 0.25s ease-in-out;"
+                            span.photo-name-line-1
+                            	a href="#" data-track="photoAttributionNameClick" data-rapid_p="3" =@image.account.email
+                            span.member-since Thành viên của Fake
+            #sidebar-contexts
+                ul#secondary-contexts
+                    li#context-explore- data-context-id="explore-2014-02-18" data-context-type="explore" class="sidebar-context sidebar-context-open sidebar-context-first sidebar-context-first-only"
+                        #contextDiv_explore.ugly-temporary-hack style="display: block;"
+                        .context-header
+                            a href="" class="context-link context-explore chunk ywa-track" data-ywa-name="Context Title" id="context-link-explore-" style="overflow: hidden; white-space: nowrap;"
+                                span.context-wrapper
+                                    span.context-title title="Explore 2014-02-18" Hình ảnh khác
+                        #context-photos-explore.context
+                            ul#context-photos-list-explore-.context-photos-list
+                            	- @images.each do |img|
+	                            	li style="float: left" class="loaded"
+	                            		a.context-thumb-link.ywa-track href=detail_home_path(img) title="#{img.title}"
+	                            			img#nextprev_thumb_explore12612730303.nextprev_thumb src="/uploads/#{img.url}" width="56" height="56" title="#{img.title}"

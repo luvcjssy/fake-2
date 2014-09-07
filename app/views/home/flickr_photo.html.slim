@@ -1,0 +1,18 @@
+#main.clearfix style="z-index:1;"
+	#subnav-refresh.subnav-refresh.subnav-view.subnav-state-ready style="left:-188px; width:1351px;"
+		.subnav-middle style="height:37.4px;"
+			.subnav-holder
+				ul.nav-links.clearfix style="margin-left:0px !important"
+					li.sn-navitem.sn-photostream.sn-active
+						a#alist data-track="YouSubnav-photostream" href=flickr_photo_home_index_path data-rapid_p="3" Danh sach anh
+					li.sn-navitem.sn-navitem.sets
+						a#aslide data-track="YouSubnav-sets" href='' data-rapid_p="4" Trinh dien anh	
+	#view-holder
+		#photo-list-holder.pre-loaded.loaded style="opacity:1;"
+			div	
+				#thumb-wrapper
+					#thumbnails.ju.photo-display-container.clearfix style="width:1341px; margin-left:10px;"
+						#photo-display-container style="z-index:2;"
+							= render 'home/listimageflickr'
+
+= stylesheet_link_tag "lightbox"

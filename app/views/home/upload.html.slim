@@ -1,0 +1,38 @@
+#Main role="main"
+	h1 Upload image
+	table#upload_from_container
+		tbody
+			tr
+				td#Hint style="width:161px"
+					h4
+						a href="" Upload image tool
+					p Chung toi cung cap cung cap cac cong cu cho may Mac va Windows de giup de dang tai len ca mot load anh trong mot lan.
+					img src="http://l.yimg.com/g/images/spaceball.gif" width="160" height="1"
+					#support-notes
+						ul#support-list.supported
+							li.default.upgrade.noflash.badversion
+								p
+									strong Luu y 
+									o - Chung toi co nhieu phien ban cong cu tai anh toi hon nhieu ma ban co the su dung neu ban bat JavaScript va cai dat phien ban moi nhat cua phan mem Flash. Ban co the 
+									a href="http://www.adobe.com/go/getflashplayer" tai ve trinh phat Flash mien phi o day 
+									o . Khi ban da cai dat xong, hay tro lai day de xem 
+									a href=upload_home_index_path phien ban flash cua Cong cu tai anh cua chung toi
+				td#GoodStuff style="padding-left:20px"
+					#wholeform
+						= form_for :image, url: upload_image_home_index_path do |f|
+							h4
+								label for="tags" Dat ten anh cua ban.
+							p.fieldset
+								= f.text_field :title, size: '40', style: "width:230px"
+							h4 style="margin-top:5px; margin-bottom: 10px;" Chon anh ban muon tren may tinh
+							#file-inputs.fieldset
+								p
+									label.obscured for="file1" Choose an image to upload
+									= f.file_field :url
+							
+							br
+							p
+								= f.submit value: 'Submit', class: 'Butt', id: 'check_file', style: 'background: #0063dc;'
+							p 	
+								o Hoac 
+								a href='' style='color: #0063dc' huy va tro lai kho anh cua ban

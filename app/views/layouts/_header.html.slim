@@ -2,5 +2,6 @@ meta charset="utf-8"
 		meta name="viewport" content="width=device-width"
 		meta property="or:type" content="imagesharingbyfake:photo"
 		title = @title
-		= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+		= stylesheet_link_tag "style"
 		= javascript_include_tag "application", "data-turbolinks-track" => true
+		= csrf_meta_tags
